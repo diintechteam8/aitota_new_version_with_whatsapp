@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "project_number": "292669454952",
+    "project_id": "aitota-business-42485",
+    "storage_bucket": "aitota-business-42485.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292669454952:android:0cacac21e4a6ea0a4119dd",
+        "android_client_info": {
+          "package_name": "com.diin.aitota_business"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292669454952-1s7aq759ba04ru63n4n4oov8qqt41o59.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "d2f0f7b7bf6ebc851237eeae859d41281c3f9b36"
+          }
+        },
+        {
+          "client_id": "292669454952-5o7nmt3tabpbuoe0uja0ks7plpn0pt1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "d86365d883bb805055cd91e3bc2c029d91e1c5f1"
+          }
+        },
+        {
+          "client_id": "292669454952-b5t1cn0l3asc8ruci83nvprncu6272dd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "a3723c204900107a151e3c34354a175e061c95a8"
+          }
+        },
+        {
+          "client_id": "292669454952-bor1luvidocimsj6ogag3f6mfu0qg5dn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "656c3dd70da861dc3ccdceabf01bec762668dd18"
+          }
+        },
+        {
+          "client_id": "292669454952-f2g5o68m0dq63g18k60ikash5qn7tu8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "0487c82545c68f90274f655f92b279385c088632"
+          }
+        },
+        {
+          "client_id": "292669454952-ljkhuenb32oqbantdeivj62tgqcd8397.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "e8b5b918ad5ff62c030af54f15bf0dcdfa6e3205"
+          }
+        },
+        {
+          "client_id": "292669454952-nm9u24eefkopupl8leqh43c8t9224faj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diin.aitota_business",
+            "certificate_hash": "ab6a2636f83a1d160273622cf0d9837a8a02f8ef"
+          }
+        },
+        {
+          "client_id": "292669454952-fdfl4qrfb42nupprmm88m91v60duej9b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABGU7p4Y1F8wziRN6QJS9T5iYQAKUkrA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292669454952-fdfl4qrfb42nupprmm88m91v60duej9b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "292669454952-b9gln3dff13m5lf35l6iilca3bn1g4pg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.diin.aitotaBusiness"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
