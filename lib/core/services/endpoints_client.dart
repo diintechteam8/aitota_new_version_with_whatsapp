@@ -250,4 +250,7 @@ class ApiEndpointsClient implements ApiEndpointsContract {
 
   @override
   String get whatsAiContacts => "${newBaseUrl}whatsai/contacts";
+
+  @override
+  String get whatsAiCampaigns => "${newBaseUrl}whatsai/campaigns";
 }

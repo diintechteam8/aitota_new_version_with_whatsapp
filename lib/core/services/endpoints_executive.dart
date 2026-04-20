@@ -257,4 +257,7 @@ String get newBaseUrl => "https://app.aitota.com/api/v1/";
 
   @override
   String get whatsAiContacts => "${newBaseUrl}whatsai/contacts";
+
+  @override
+  String get whatsAiCampaigns => "${newBaseUrl}whatsai/campaigns";
 }

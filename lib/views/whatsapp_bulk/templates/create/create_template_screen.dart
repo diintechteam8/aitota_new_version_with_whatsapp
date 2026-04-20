@@ -19,7 +19,7 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
           ),
         ),
         title: Text(
-          'Create Template',
+          controller.templateId != null ? 'Edit Template' : 'Create Template',
           style: TextStyle(
             fontSize: 18.sp,
             fontFamily: AppFonts.playfair,
@@ -29,19 +29,24 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.w),
-        child: Column(
-          children: [
-            _buildGeneralInfoSection(),
-            SizedBox(height: 20.h),
-            _buildContentSection(),
-            SizedBox(height: 20.h),
-            _buildButtonsSection(),
-            SizedBox(height: 32.h),
-            _buildSaveButton(),
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(20.w),
+              child: Column(
+                children: [
+                  _buildGeneralInfoSection(),
+                  SizedBox(height: 20.h),
+                  _buildContentSection(),
+                  SizedBox(height: 20.h),
+                  _buildButtonsSection(),
+                ],
+              ),
+            ),
+          ),
+          _buildSaveButton(context),
+        ],
       ),
     );
   }
@@ -51,13 +56,18 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
       title: "General Information",
       child: Column(
         children: [
-          _buildTextField("Template Name", controller.nameController, hint: "e.g. order_alert"),
+          _buildTextField("Template Name", controller.nameController,
+              hint: "e.g. order_alert"),
           SizedBox(height: 16.h),
           Row(
             children: [
-              Expanded(child: _buildDropdown("Category", controller.selectedCategory, controller.categories)),
+              Expanded(
+                  child: _buildDropdown("Category", controller.selectedCategory,
+                      controller.categories)),
               SizedBox(width: 12.w),
-              Expanded(child: _buildDropdown("Language", controller.selectedLanguage, controller.languages)),
+              Expanded(
+                  child: _buildDropdown("Language", controller.selectedLanguage,
+                      controller.languages)),
             ],
           ),
         ],
@@ -70,16 +80,15 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
       title: "Message Content",
       child: Column(
         children: [
-          _buildTextField("Header (Optional)", controller.headerController, hint: "Text header"),
+          _buildTextField("Header (Optional)", controller.headerController,
+              hint: "Text header"),
           SizedBox(height: 16.h),
-          _buildTextField(
-            "Body Text", 
-            controller.bodyController, 
-            hint: "Write your message here. Use {{1}} for variables.",
-            maxLines: 4
-          ),
+          _buildTextField("Body Text", controller.bodyController,
+              hint: "Write your message here. Use {{1}} for variables.",
+              maxLines: 4),
           SizedBox(height: 16.h),
-          _buildTextField("Footer (Optional)", controller.footerController, hint: "Small text at bottom"),
+          _buildTextField("Footer (Optional)", controller.footerController,
+              hint: "Small text at bottom"),
         ],
       ),
     );
@@ -91,30 +100,32 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
       child: Column(
         children: [
           Obx(() => Column(
-            children: controller.buttons.asMap().entries.map((entry) {
-              int idx = entry.key;
-              return Container(
-                margin: EdgeInsets.only(bottom: 12.h),
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade50,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.grey.shade200),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.smart_button, size: 20),
-                    SizedBox(width: 12.w),
-                    Expanded(child: Text(entry.value["text"] ?? "")),
-                    IconButton(
-                      icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
-                      onPressed: () => controller.removeButton(idx),
+                children: controller.buttons.asMap().entries.map((entry) {
+                  int idx = entry.key;
+                  return Container(
+                    margin: EdgeInsets.only(bottom: 12.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade50,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.grey.shade200),
                     ),
-                  ],
-                ),
-              );
-            }).toList(),
-          )),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.smart_button, size: 20),
+                        SizedBox(width: 12.w),
+                        Expanded(child: Text(entry.value["text"] ?? "")),
+                        IconButton(
+                          icon: const Icon(Icons.delete_outline,
+                              color: Colors.red, size: 20),
+                          onPressed: () => controller.removeButton(idx),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              )),
           TextButton.icon(
             onPressed: controller.addButton,
             icon: const Icon(Icons.add),
@@ -159,11 +170,16 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
     );
   }
 
-  Widget _buildTextField(String label, TextEditingController ctrl, {String? hint, int maxLines = 1}) {
+  Widget _buildTextField(String label, TextEditingController ctrl,
+      {String? hint, int maxLines = 1}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500, color: Colors.grey.shade600)),
+        Text(label,
+            style: TextStyle(
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey.shade600)),
         SizedBox(height: 8.h),
         TextField(
           controller: ctrl,
@@ -190,50 +206,74 @@ class CreateTemplateScreen extends GetView<CreateTemplateController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500, color: Colors.grey.shade600)),
+        Text(label,
+            style: TextStyle(
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey.shade600)),
         SizedBox(height: 8.h),
         Obx(() => Container(
-          padding: EdgeInsets.symmetric(horizontal: 12.w),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade50,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.grey.shade200),
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: selected.value,
-              isExpanded: true,
-              items: items.map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
-              onChanged: (val) => selected.value = val!,
-            ),
-          ),
-        )),
+              padding: EdgeInsets.symmetric(horizontal: 12.w),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade50,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.grey.shade200),
+              ),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: selected.value,
+                  isExpanded: true,
+                  items: items
+                      .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                      .toList(),
+                  onChanged: (val) => selected.value = val!,
+                ),
+              ),
+            )),
       ],
     );
   }
 
-  Widget _buildSaveButton() {
-    return Obx(() => SizedBox(
-      width: double.infinity,
-      height: 55.h,
-      child: ElevatedButton(
-        onPressed: controller.isSaving.value ? null : controller.saveTemplate,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: ColorConstants.whatsappGradientDark,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          elevation: 0,
+  Widget _buildSaveButton(context) {
+    final padding = MediaQuery.of(context).padding;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: padding.bottom),
+      child: Container(
+        padding: EdgeInsets.all(20.w),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, -2),
+            ),
+          ],
         ),
-        child: controller.isSaving.value
-            ? const CircularProgressIndicator(color: Colors.white)
-            : Text(
-                "Save Template",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                ),
+        child: Obx(() => ElevatedButton(
+              onPressed:
+                  controller.isSaving.value ? null : controller.saveTemplate,
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 45.h),
+                backgroundColor: ColorConstants.whatsappGradientDark,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                elevation: 0,
               ),
+              child: controller.isSaving.value
+                  ? const CircularProgressIndicator(color: Colors.white)
+                  : Text(
+                      controller.templateId != null ? "Update Template" : "Save Template",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+            )),
       ),
-    ));
+    );
   }
 }

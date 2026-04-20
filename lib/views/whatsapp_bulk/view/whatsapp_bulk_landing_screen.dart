@@ -237,7 +237,7 @@ class WhatsAppBulkLandingScreen extends GetView<WhatsAppBulkController> {
 
   Widget _buildMainActionButton() {
     return InkWell(
-      onTap: controller.launchNewCampaign,
+      onTap: controller.viewCampaigns,
       borderRadius: BorderRadius.circular(20),
       child: Container(
         width: double.infinity,

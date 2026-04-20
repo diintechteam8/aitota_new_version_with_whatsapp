@@ -197,6 +197,8 @@ import '../views/profile/binding/profile_binding.dart';
 import '../views/profile/profile_screen.dart';
 import '../views/whatsapp_bulk/audience/controller/audience_selection_controller.dart';
 import '../views/whatsapp_bulk/templates/controller/whatsapp_templates_controller.dart';
+import '../views/whatsapp_bulk/campaigns/view/campaign_list_screen.dart';
+import '../views/whatsapp_bulk/campaigns/binding/campaign_list_binding.dart';
 
 class AppRoutes {
   static const String initialRoute = '/splash_screen';
@@ -333,6 +335,7 @@ class AppRoutes {
   static const String createTemplateScreen = '/create_template_screen';
   static const String whatsappReportsScreen = '/whatsapp_reports_screen';
   static const String whatsappInboxScreen = '/whatsapp_inbox_screen';
+  static const String whatsappCampaignsScreen = '/whatsapp_campaigns_screen';
   
   static List<GetPage> pages = [
     GetPage(
@@ -948,6 +951,11 @@ class AppRoutes {
       bindings: [
         WhatsAppNavBinding(),
       ],
+    ),
+    GetPage(
+      name: AppRoutes.whatsappCampaignsScreen,
+      page: () => const CampaignListScreen(),
+      binding: CampaignListBinding(),
     ),
   ];
 }

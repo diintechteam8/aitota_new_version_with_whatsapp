@@ -29,8 +29,9 @@ class WhatsAppBulkController extends GetxController {
     }
   }
 
-  void launchNewCampaign() {
-    Get.toNamed(AppRoutes.addOutboundCampaignScreen);
+  void viewCampaigns() {
+        // Get.toNamed(AppRoutes.addOutboundCampaignScreen);
+    Get.toNamed(AppRoutes.whatsappCampaignsScreen);
   }
 
   void manageTemplates() {

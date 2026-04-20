@@ -246,4 +246,5 @@ class ApiEndpoints {
   static String get callLogsFilters => _cfg.endpoints.callLogsFilters;
 
   static String get whatsAiContacts => _cfg.endpoints.whatsAiContacts;
+  static String get whatsAiCampaigns => _cfg.endpoints.whatsAiCampaigns;
 }

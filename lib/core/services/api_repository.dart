@@ -1,6 +1,7 @@
 import 'package:aitota_business/data/model/CommonModel/common_model.dart';
 import 'package:aitota_business/data/model/whatsapp_bulk/whats_ai_contact_model.dart';
 import 'package:aitota_business/data/model/whatsapp_bulk/whats_ai_contacts_list_model.dart';
+import 'package:aitota_business/data/model/whatsapp_bulk/whats_ai_campaign_model.dart';
 import 'package:aitota_business/data/model/ai_agent/end_call_model.dart';
 import 'package:aitota_business/data/model/ai_agent/history_call_logs_model.dart';
 import 'package:aitota_business/data/model/ai_agent/live_call_logs_model.dart';
@@ -245,4 +246,5 @@ abstract class ApiRepository {
   });
   Future<WhatsAiContactResponseModel> updateWhatsAiContact(String id, Map<String, dynamic> request);
   Future<CommonResponseModel> deleteWhatsAiContact(String id);
+  Future<WhatsAiCampaignListModel> getWhatsAiCampaigns();
 }

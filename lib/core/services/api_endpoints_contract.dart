@@ -117,4 +117,5 @@ abstract class ApiEndpointsContract {
   String get callLogsFilters;
 
   String get whatsAiContacts;
+  String get whatsAiCampaigns;
 }

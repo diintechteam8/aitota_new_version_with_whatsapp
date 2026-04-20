@@ -42,6 +42,12 @@ class GetTemplateModelTemplates {
   String? metaTemplateId;
   String? status;
   String? updatedAt;
+  String? userId;
+  String? whatsappTemplateName;
+  String? languageCode;
+  String? bodyPreview;
+  String? parameterFormat;
+  List<dynamic>? sampleParams;
 
   GetTemplateModelTemplates({
     this.sId,
@@ -55,6 +61,12 @@ class GetTemplateModelTemplates {
     this.metaTemplateId,
     this.status,
     this.updatedAt,
+    this.userId,
+    this.whatsappTemplateName,
+    this.languageCode,
+    this.bodyPreview,
+    this.parameterFormat,
+    this.sampleParams,
   });
 
   GetTemplateModelTemplates.fromJson(Map<String, dynamic> json) {
@@ -75,6 +87,12 @@ class GetTemplateModelTemplates {
     metaTemplateId = json['metaTemplateId'];
     status = json['status'];
     updatedAt = json['updatedAt'];
+    userId = json['userId'];
+    whatsappTemplateName = json['whatsappTemplateName'];
+    languageCode = json['languageCode'];
+    bodyPreview = json['bodyPreview'];
+    parameterFormat = json['parameterFormat'];
+    sampleParams = json['sampleParams'];
   }
 
   Map<String, dynamic> toJson() {
@@ -94,6 +112,12 @@ class GetTemplateModelTemplates {
     result['metaTemplateId'] = metaTemplateId;
     result['status'] = status;
     result['updatedAt'] = updatedAt;
+    result['userId'] = userId;
+    result['whatsappTemplateName'] = whatsappTemplateName;
+    result['languageCode'] = languageCode;
+    result['bodyPreview'] = bodyPreview;
+    result['parameterFormat'] = parameterFormat;
+    result['sampleParams'] = sampleParams;
     return result;
   }
 }

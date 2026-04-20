@@ -1,6 +1,7 @@
 import 'package:aitota_business/core/services/role_provider.dart';
 import 'package:aitota_business/data/model/whatsapp_bulk/whats_ai_contact_model.dart';
 import 'package:aitota_business/data/model/whatsapp_bulk/whats_ai_contacts_list_model.dart';
+import 'package:aitota_business/data/model/whatsapp_bulk/whats_ai_campaign_model.dart';
 import 'package:aitota_business/data/model/AgentChatHistory/agent_chat_history_model.dart';
 import 'package:aitota_business/data/model/AgentChatHistory/get_by_agent_id_chat_history_model.dart';
 import 'package:aitota_business/data/model/CommonModel/common_model.dart';
@@ -2427,6 +2428,25 @@ Future<GetTeamGroupContactsModel> getTeamGroupContacts(
         return CommonResponseModel.fromJson(response.data);
       } else {
         throw Exception('Failed to delete contact');
+      }
+    } on DioException catch (e) {
+      throw Exception('API Error: ${e.message}');
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
+  @override
+  Future<WhatsAiCampaignListModel> getWhatsAiCampaigns() async {
+    try {
+      final String url = ApiEndpoints.whatsAiCampaigns;
+      print('Calling URL: $url');
+      final response = await dio.get(url);
+      print("WhatsAiCampaignsResponse: ${response.data}");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return WhatsAiCampaignListModel.fromJson(response.data);
+      } else {
+        throw Exception('Backend error: ${response.statusCode}');
       }
     } on DioException catch (e) {
       throw Exception('API Error: ${e.message}');

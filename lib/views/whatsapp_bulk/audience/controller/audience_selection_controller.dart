@@ -153,7 +153,7 @@ class AudienceSelectionController extends GetxController
     isLoadingHistory.value = true;
     try {
       final dioClient = DioClient().dio;
-      final response = await dioClient.get('whatsai/contacts/imports');
+      final response = await dioClient.get('whatsai/contacts/import');
 
       if (response.statusCode == 200) {
         final data = response.data;
